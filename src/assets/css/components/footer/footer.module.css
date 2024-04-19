@@ -1,0 +1,116 @@
+.footerContainer {
+    height: 350px;
+    padding: 55px 150px 0 150px;
+    background: var(--color-purple-900);
+    width: 100%;
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    flex-direction: column;
+}
+
+.footerTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.footerCompanyInfo {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    flex-direction: column;
+}
+
+.footerLogo {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.footerLogoText {
+    color: #FFF;
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: 1.82px;
+}
+
+.footerCompanyInfoText {
+    color: #FFF;
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.footerContactContainer {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 150%;
+    color: #FFF;
+    display: flex;
+    gap: 16px;
+}
+
+.footerContact {
+    box-shadow: 0 1.5px 0 0 #E0AAFF;
+    padding: 6px 0;
+}
+
+.footerNavigationSection {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footerNavigationTitle {
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 150%;
+}
+
+.footerNavigationLinks {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footerNavigationLink {
+    color: var(--color-gray-100);
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 150%;
+    text-decoration: unset;
+}
+
+.footerBottom {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    box-shadow: 0 -1px 0 0 #C77DFF;
+    padding: 24px 0;
+}
+
+.footerCredits {
+    color: var(--color-gray-200, #CCC);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.footerPaymentMethods {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.footerPaymentMethod {
+    width: 45px;
+    height: 30px;
+    background-color: var(--color-gray-900);
+    border: 1px solid var(--color-gray-800);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}

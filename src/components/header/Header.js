@@ -42,7 +42,7 @@ const Header = ({
     }
 
     return (
-        <div className={classes.headerContainer}>
+        <header className={classes.headerContainer}>
             <div className={classes.headerTop}>
                 <div className={classes.headerLogo}>
                     <LogoIconSmall />
@@ -116,7 +116,7 @@ const Header = ({
                     </div>
                 )
             }
-        </div>
+        </header>
     )
 }
 
