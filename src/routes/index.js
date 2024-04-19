@@ -27,15 +27,19 @@ export const router = createBrowserRouter([
         element: <div>Chips</div>,
     },
     {
-        path: '/products/sweets',
-        element: <div>sweets</div>,
-    },
-    {
         path: '/products/drinks',
         element: <div>drinks</div>,
     },
     {
-        path: '/products/drinks',
+        path: '/products/cookies',
         element: <div>cookies</div>,
+    },
+    {
+        path: '/products/chocolate',
+        element: <div>chocolate</div>,
+    },
+    {
+        path: '/products/cookies',
+        element: <div>candy</div>,
     },
 ]);

@@ -1,10 +1,10 @@
-import HeaderFull from "../header/HeaderFull";
+import Header from "../header/Header";
 
 export default function MainLayout({ children }) {
     return (
-        <div>
-            <HeaderFull />
+        <>
+            <Header full={true} />
             { children }
-        </div>
+        </>
     )
 }

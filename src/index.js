@@ -2,13 +2,28 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import './index.css';
+import '@mantine/core/styles.css';
 import reportWebVitals from './reportWebVitals';
 import { router } from './routes/index';
+import {createTheme, Input, MantineProvider} from "@mantine/core";
+import classes from "./assets/css/general.module.css";
+
+const theme = createTheme({
+    components: {
+        Input: Input.extend({
+            classNames: {
+                input: classes.generalInput,
+            },
+        })
+    },
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+      <MantineProvider theme={theme}>
+          <RouterProvider router={router} />
+      </MantineProvider>
   </React.StrictMode>
 );
 

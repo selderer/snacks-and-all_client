@@ -1,0 +1,151 @@
+.headerContainer {
+    background-color: var(--color-gray-0);
+    height: 140px;
+    width: 100%;
+}
+
+.headerTop {
+    padding: 25px 150px 30px 150px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.headerLogo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.headerLogoText {
+    color: var(--color-purple-600);
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.headerSearch {
+    display: flex;
+    align-items: center;
+}
+
+.headerSearchInput {
+    width: 310px;
+}
+
+.headerSearchButton {
+    width: 40px;
+    height: 100%;
+    background-color: var(--color-purple-500);
+    color: #FFFFFF;
+    outline: unset;
+    border: unset;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ion-icon {
+    font-size: 20px;
+}
+
+.headerCart {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.headerCartIconContainer {
+    position: relative;
+    max-height: 30px;
+}
+
+.headerCartBadge {
+    position: absolute;
+    display: flex;
+    padding: 3px 4px 3px 5px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    border: 1px solid var(--color-gray-0);
+    background: var(--color-purple-700);
+    text-align: center;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 10px;
+    color: var(--color-gray-0);
+    left: 13px;
+    bottom: 13px;
+}
+
+.headerCartInfoTitle {
+    color: var(--color-gray-700);
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 120%;
+}
+
+.headerCartInfoMoney {
+    color: var(--color-gray-900);
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 100%;
+    margin-top: 4px;
+}
+
+.headerBottom {
+    height: 50px;
+    border-top: 1px solid var(--color-gray-200, #CCC);
+    padding: 0 150px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.headerNavigationMainButton {
+    width: 180px;
+    height: 50px;
+    color: #FFF;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -0.15px;
+}
+
+.headerNavigationContainer {
+    display: flex;
+    align-items: center;
+}
+
+.headerNavigation {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    margin-left: 50px;
+}
+
+.headerNavigationLink {
+    color: var(--color-gray-800, #333);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -0.15px;
+    text-decoration: unset;
+}
+
+.headerContactInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.headerNavigationActiveLink {
+    color: var(--color-purple-700);
+}
+
+.headerContactNumber {
+    color: var(--color-gray-900, #1A1A1A);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 150%;
+}
