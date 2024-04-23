@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client';
 import { RouterProvider } from 'react-router-dom';
 import './index.css';
 import '@mantine/core/styles.css';
+import 'swiper/css';
+import 'swiper/css/pagination';
 import reportWebVitals from './reportWebVitals';
 import { router } from './routes/index';
 import {createTheme, Input, MantineProvider} from "@mantine/core";

@@ -164,7 +164,7 @@ const Footer = () => {
                     {
                         paymentMethodsCards.map((logo, index) => {
                             return (
-                                <div className={classes.footerPaymentMethod}>
+                                <div className={classes.footerPaymentMethod} key={index}>
                                     <img src={logo} alt="Payment method logo" />
                                 </div>
                             )
