@@ -1,0 +1,84 @@
+.productsContainer {
+    display: grid;
+    margin-top: 50px;
+    grid-template-columns: auto auto auto auto auto;
+    gap: 40px;
+}
+
+.productsFiltersContainer {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.allProductsWrapper {
+    padding: 0 55px;
+}
+
+.productsFilter {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.productsFilterTitle {
+    color: var(--color-gray-800, #333);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.productsFilterCategoryWrapper {
+    height: 36px;
+    border: 1px solid var(--color-gray-200, #B3B3B3);
+    background: #FFF;
+    display: flex;
+    align-items: center;
+    padding: 12px 30px;
+    gap: 40px;
+    border-radius: 3px;
+}
+
+.productsCategoryFilter {
+    color: var(--color-gray-800, #333);
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+
+    transition: color .2s;
+}
+
+.productsCategoryFilter:hover {
+    color: var(--color-gray-600);
+}
+
+.productsCategoryFilterActive {
+    color: var(--color-purple-600);
+}
+
+.productsPriceRangeWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.productsPriceRangeButton {
+    background-color: var(--color-purple-700);
+    padding: 5px 10px;
+    color: #FFF;
+    height: 36px;
+    font-weight: 400;
+    border-radius: 3px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.productsPriceRangeInputs {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.productsPriceRangeInput {
+    width: 150px;
+}

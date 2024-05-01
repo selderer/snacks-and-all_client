@@ -112,8 +112,8 @@
 
 .homeSectionProductsWrapper {
     display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 50px;
+    grid-template-columns: auto auto auto auto;
+    gap: 40px;
     justify-content: center;
 }
 
@@ -126,4 +126,5 @@
     line-height: 150%;
     border-radius: 3px;
     background: var(--color-purple-600, #5A189A);
+    cursor: pointer;
 }

@@ -74,6 +74,7 @@ input {
 
 ::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 /* Track */
@@ -99,4 +100,19 @@ input {
 button {
   outline: none;
   border: none;
+  cursor: pointer;
+}
+
+.pageTitle {
+  color: var(--color-gray-800, #333);
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  margin-top: 50px;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

@@ -1,0 +1,7 @@
+.categoryProductsContainer {
+    gap: 50px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: center;
+    margin-top: 40px;
+}

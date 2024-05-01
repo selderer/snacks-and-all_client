@@ -1,5 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import HomePage from "../pages/Home";
+import AddProduct from "../pages/AddProduct";
+import AllProducts from "../pages/AllProducts";
+import Product from "../pages/Product";
+import CategoryProducts from "../pages/CategoryProducts";
 
 export const router = createBrowserRouter([
     {
@@ -8,11 +12,11 @@ export const router = createBrowserRouter([
     },
     {
         path: '/products',
-        element: <div>Products ALL</div>,
+        element: <AllProducts />,
     },
     {
         path: '/products/:productId',
-        element: <div>Product</div>,
+        element: <Product />,
     },
     {
         path: '/cart',
@@ -24,22 +28,26 @@ export const router = createBrowserRouter([
     },
     {
         path: '/products/chips',
-        element: <div>Chips</div>,
+        element: <CategoryProducts category="chips" />,
     },
     {
         path: '/products/drinks',
-        element: <div>drinks</div>,
+        element: <CategoryProducts category="drink" />,
     },
     {
         path: '/products/cookies',
-        element: <div>cookies</div>,
+        element: <CategoryProducts category="cookie" />,
     },
     {
         path: '/products/chocolate',
-        element: <div>chocolate</div>,
+        element: <CategoryProducts category="chocolate" />,
     },
     {
         path: '/products/candy',
-        element: <div>candy</div>,
+        element: <CategoryProducts category="candy" />,
     },
+    {
+        path: '/products/add',
+        element: <AddProduct />,
+    }
 ]);

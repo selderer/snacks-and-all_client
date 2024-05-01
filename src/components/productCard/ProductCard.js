@@ -30,16 +30,16 @@ const ProductCard = ({
                 size === 'small' ? (
                     <div onClick={handleCardClick} className={cn(classes.productCardSmall, classes.productCard)}>
                         <div className={classes.productCardImageContainerSmall}>
-                            <img src={image} alt="Product" />
+                            <img src={`/upload/${image}`} alt="Product" className={classes.productCardImage} />
                         </div>
                         <div className={cn(classes.productCardInfoWrapperSmall, classes.productCardInfoWrapper)}>
                             <div className={cn(classes.productCardInfo)}>
-                                <span className={cn(classes.productCardTitle, classes.productCardTitleSmall)}>
+                                <div className={cn(classes.productCardTitle, classes.productCardTitleSmall)}>
                                     { name }
-                                </span>
-                                <span className={cn(classes.productCardPrice, classes.productCardPriceSmall)}>
+                                </div>
+                                <div className={cn(classes.productCardPrice, classes.productCardPriceSmall)}>
                                     { price } &#1423;
-                                </span>
+                                </div>
                             </div>
                             <div
                                 onClick={handleCartClick}
@@ -52,16 +52,16 @@ const ProductCard = ({
                 ) : (
                     <div onClick={handleCardClick} className={cn(classes.productCardBig, classes.productCard)}>
                         <div className={classes.productCardImageContainerBig}>
-                            <img src={image} alt="Product" />
+                            <img src={`/upload/${image}`} alt="Product" className={classes.productCardImage} />
                         </div>
                         <div className={cn(classes.productCardInfoWrapperBig, classes.productCardInfoWrapper)}>
                             <div className={cn(classes.productCardInfo)}>
-                                <span className={cn(classes.productCardTitle, classes.productCardTitleBig)}>
+                                <div className={cn(classes.productCardTitle, classes.productCardTitleBig)}>
                                     { name }
-                                </span>
-                                <span className={cn(classes.productCardPrice, classes.productCardPriceBig)}>
+                                </div>
+                                <div className={cn(classes.productCardPrice, classes.productCardPriceBig)}>
                                     { price } &#1423;
-                                </span>
+                                </div>
                             </div>
                             <div
                                 onClick={handleCartClick}

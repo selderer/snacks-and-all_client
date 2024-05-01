@@ -41,10 +41,14 @@ const Header = ({
         navigate('/products')
     }
 
+    const handleLogoClick = () => {
+        navigate('/')
+    }
+
     return (
         <header className={classes.headerContainer}>
             <div className={classes.headerTop}>
-                <div className={classes.headerLogo}>
+                <div onClick={handleLogoClick} className={classes.headerLogo}>
                     <LogoIconSmall />
                     <div className={classes.headerLogoText}>
                         Snacks and All

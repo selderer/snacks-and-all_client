@@ -7,22 +7,39 @@ import sliderImage2 from '../assets/images/sliderImage2.jpg';
 import sliderImage3 from '../assets/images/sliderImage3.png';
 import sliderImage4 from '../assets/images/sliderImage4.jpg';
 import ProductCard from '../components/productCard/ProductCard';
-import harriboProduct from '../assets/images/harriboProducts.png';
 import chips from '../assets/images/categories/chips.png';
 import candy from '../assets/images/categories/candy.png';
 import chocolate from '../assets/images/categories/chocolate.png';
 import cookies from '../assets/images/categories/cookies.png';
 import drinks from '../assets/images/categories/drinks.png';
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import {ProductsApi} from "../api/products";
 
 const sliderImages = [sliderImage1, sliderImage2, sliderImage3, sliderImage4];
 
 export default function HomePage() {
+    const [bestsellerSnacks, setBestsellerSnacks] = useState([]);
+    const [exoticSnacks, setExoticSnacks] = useState([]);
     let navigate = useNavigate();
 
     const goToCategory = (category) => {
         navigate(`/products/${category}`)
     }
+
+    const handleShowNowClick = () => {
+        navigate('products/all')
+    }
+
+    useEffect(() => {
+        ProductsApi.getProductsByType('bestseller').then(response => {
+            setBestsellerSnacks(response.data)
+        })
+
+        ProductsApi.getProductsByType('exotic', 8).then(response => {
+            setExoticSnacks(response.data)
+        })
+    }, [])
 
     return (
         <MainLayout>
@@ -67,69 +84,19 @@ export default function HomePage() {
                     modules={[Navigation]}
                     className="mySwiper"
                 >
-                    <SwiperSlide className={classes.homeMiniSlider}>
-                        <ProductCard
-                            id={102}
-                            name="haribo gummies"
-                            price={1000}
-                            image={harriboProduct}
-                            size="small"
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide className={classes.homeMiniSlider}>
-                        <ProductCard
-                            id={102}
-                            name="haribo gummies"
-                            price={1000}
-                            image={harriboProduct}
-                            size="small"
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide className={classes.homeMiniSlider}>
-                        <ProductCard
-                            id={102}
-                            name="haribo gummies"
-                            price={1000}
-                            image={harriboProduct}
-                            size="small"
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide className={classes.homeMiniSlider}>
-                        <ProductCard
-                            id={102}
-                            name="haribo gummies"
-                            price={1000}
-                            image={harriboProduct}
-                            size="small"
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide className={classes.homeMiniSlider}>
-                        <ProductCard
-                            id={102}
-                            name="haribo gummies"
-                            price={1000}
-                            image={harriboProduct}
-                            size="small"
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide className={classes.homeMiniSlider}>
-                        <ProductCard
-                            id={102}
-                            name="haribo gummies"
-                            price={1000}
-                            image={harriboProduct}
-                            size="small"
-                        />
-                    </SwiperSlide>
-                    <SwiperSlide className={classes.homeMiniSlider}>
-                        <ProductCard
-                            id={102}
-                            name="haribo gummies"
-                            price={1000}
-                            image={harriboProduct}
-                            size="small"
-                        />
-                    </SwiperSlide>
+                    {
+                        bestsellerSnacks.map((product, index) => (
+                            <SwiperSlide className={classes.homeMiniSlider} key={index}>
+                                <ProductCard
+                                    id={product.id}
+                                    name={product.name}
+                                    price={product.price}
+                                    image={product.image}
+                                    size="small"
+                                />
+                            </SwiperSlide>
+                        ))
+                    }
                 </Swiper>
             </section>
 
@@ -188,50 +155,21 @@ export default function HomePage() {
                     Exotic snacks to spice things up
                 </div>
                 <div className={classes.homeSectionProductsWrapper}>
-                    <ProductCard
-                        id={102}
-                        name="haribo gummies"
-                        price={1000}
-                        image={harriboProduct}
-                        size="big"
-                    />
-                    <ProductCard
-                        id={102}
-                        name="haribo gummies"
-                        price={1000}
-                        image={harriboProduct}
-                        size="big"
-                    />
-                    <ProductCard
-                        id={102}
-                        name="haribo gummies"
-                        price={1000}
-                        image={harriboProduct}
-                        size="big"
-                    />
-                    <ProductCard
-                        id={102}
-                        name="haribo gummies"
-                        price={1000}
-                        image={harriboProduct}
-                        size="big"
-                    />
-                    <ProductCard
-                        id={102}
-                        name="haribo gummies"
-                        price={1000}
-                        image={harriboProduct}
-                        size="big"
-                    />
-                    <ProductCard
-                        id={102}
-                        name="haribo gummies"
-                        price={1000}
-                        image={harriboProduct}
-                        size="big"
-                    />
+                    {
+                        exoticSnacks.map((product, index) => {
+                            return (
+                                <ProductCard
+                                    id={product.id}
+                                    name={product.name}
+                                    price={product.price}
+                                    image={product.image}
+                                    size="small"
+                                />
+                            )
+                        })
+                    }
                 </div>
-                <button className={classes.homeMainButton}>
+                <button onClick={handleShowNowClick} className={classes.homeMainButton}>
                     Shop now
                 </button>
             </section>
