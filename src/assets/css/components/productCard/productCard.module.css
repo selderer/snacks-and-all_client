@@ -68,10 +68,16 @@
     border-radius: 50px;
     background-color: var(--color-gray-50);
     cursor: pointer;
+
+    transition: background-color .2s;
+}
+
+.productCardButton:hover {
+    background-color: var(--color-gray-100);
 }
 
 .productCardButtonSmall {
-    padding: 9px;
+    padding: 7px;
 }
 
 .productCardBig {

@@ -52,7 +52,7 @@ ion-icon {
 
 .headerCart {
     display: flex;
-    gap: 5px;
+    gap: 10px;
     align-items: center;
     cursor: pointer;
 }
@@ -76,7 +76,7 @@ ion-icon {
     font-weight: 500;
     line-height: 10px;
     color: var(--color-gray-0);
-    left: 13px;
+    left: 22px;
     bottom: 13px;
 }
 
