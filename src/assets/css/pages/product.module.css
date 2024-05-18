@@ -75,8 +75,48 @@
 .productInfoAddToCartButton {
     border-radius: 3px;
     background: var(--color-purple-700, #3C096C);
-    padding: 15px 40px;
+    padding: 10px 24px;
     color: #FFF;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 400;
+}
+
+.productCountWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.productCounterButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: var(--color-purple-700);
+    color: #FFF;
+    font-size: 32px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.productCounterButtonLeft {
+    border-radius: 3px 0 0 3px;
+}
+
+.productCounterButtonRight {
+    border-radius: 0 3px 3px 0;
+}
+
+.productCounter {
+    width: 55px;
+}
+
+.productCounter input {
+    min-height: 50px;
+    height: 50px;
+    border-radius: unset;
+    background: var(--color-gray-50);
+    border: 1px solid var(--color-gray-100);
+    text-align: center;
+    font-size: 30px;
 }

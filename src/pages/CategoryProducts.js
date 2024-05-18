@@ -52,7 +52,7 @@ const CategoryProducts = ({
             <div className={classes.categoryProductsContainer}>
                 {
                     productsLoading ? (
-                        <div>
+                        <div className={classes.categoryProductsLoading}>
                             <Loader className="loader" color="var(--color-purple-700)" />
                         </div>
                     ) : (

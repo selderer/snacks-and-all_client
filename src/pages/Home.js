@@ -28,7 +28,7 @@ export default function HomePage() {
     }
 
     const handleShowNowClick = () => {
-        navigate('products/all')
+        navigate('/products')
     }
 
     useEffect(() => {
@@ -39,6 +39,13 @@ export default function HomePage() {
         ProductsApi.getProductsByType('exotic', 8).then(response => {
             setExoticSnacks(response.data)
         })
+
+        // Check if user is new to the site, add default empty cart to local storage
+        const cartProducts = localStorage.getItem('cartProducts')
+
+        if (!cartProducts) {
+            localStorage.setItem('cartProducts', JSON.stringify([]))
+        }
     }, [])
 
     return (
@@ -92,6 +99,7 @@ export default function HomePage() {
                                     name={product.name}
                                     price={product.price}
                                     image={product.image}
+                                    description={product.description}
                                     size="small"
                                 />
                             </SwiperSlide>
@@ -163,7 +171,9 @@ export default function HomePage() {
                                     name={product.name}
                                     price={product.price}
                                     image={product.image}
+                                    description={product.description}
                                     size="small"
+                                    key={index}
                                 />
                             )
                         })

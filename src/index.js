@@ -1,31 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { RouterProvider } from 'react-router-dom';
 import './index.css';
 import '@mantine/core/styles.css';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import reportWebVitals from './reportWebVitals';
-import { router } from './routes/index';
-import {createTheme, Input, MantineProvider} from "@mantine/core";
-import classes from "./assets/css/general.module.css";
-
-const theme = createTheme({
-    components: {
-        Input: Input.extend({
-            classNames: {
-                input: classes.generalInput,
-            },
-        })
-    },
-});
+import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-      <MantineProvider theme={theme}>
-          <RouterProvider router={router} />
-      </MantineProvider>
+      <App />
   </React.StrictMode>
 );
 

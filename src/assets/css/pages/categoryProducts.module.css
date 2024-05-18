@@ -5,3 +5,8 @@
     justify-content: center;
     margin-top: 40px;
 }
+
+.categoryProductsLoading {
+    grid-column-start: 2;
+    margin-left: 45px;
+}

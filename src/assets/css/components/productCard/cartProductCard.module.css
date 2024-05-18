@@ -1,0 +1,86 @@
+.cartProductCartContainer {
+    border: 1px solid var(--color-gray-100, #E6E6E6);
+    background: var(--color-gray-0, #FFF);
+    width: 530px;
+    height: 270px;
+    display: flex;
+    cursor: pointer;
+
+    transition: .2s box-shadow;
+}
+
+.cartProductCartContainer:hover {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+}
+
+.cartProductCardImageWrapper {
+    width: 255px;
+    height: 100%;
+    border-right: 1px solid var(--color-gray-100, #E6E6E6);
+}
+
+.cartProductCardImage {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.cartProductCardInfoWrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+.cartProductCardTitle {
+    color: var(--color-gray-700, #4C4C4C);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 235px;
+}
+
+.cartProductCardPrice {
+    color: var(--color-gray-900, #191919);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 150%;
+}
+
+.cartProductSecondary {
+    display: flex;
+    flex-direction: column;
+}
+
+.cartProductCardDesc {
+    max-width: 235px;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: var(--color-gray-700, #4C4C4C);
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 150%;
+    margin-top: 20px;
+}
+
+.cartProductCardButtons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.cartProductDeleteButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    background: #EA5252;
+    padding: 5px;
+}

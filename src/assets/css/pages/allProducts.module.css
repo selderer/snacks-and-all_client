@@ -30,17 +30,18 @@
 
 .productsFilterCategoryWrapper {
     height: 36px;
-    border: 1px solid var(--color-gray-200, #B3B3B3);
+    border: 1px solid #ced4da;
     background: #FFF;
     display: flex;
     align-items: center;
     padding: 12px 30px;
     gap: 40px;
     border-radius: 3px;
+    margin-left: 20px;
 }
 
 .productsCategoryFilter {
-    color: var(--color-gray-800, #333);
+    color: var(--color-gray-700);
     font-size: 16px;
     font-weight: 400;
     cursor: pointer;

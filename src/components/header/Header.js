@@ -4,6 +4,8 @@ import classes from '../../assets/css/components/header/header.module.css';
 import { NavLink, useNavigate } from 'react-router-dom'
 import CartIcon from "../../assets/icons/CartIcon";
 import PhoneIcon from "../../assets/icons/PhoneIcon";
+import { useEffect, useState } from "react";
+import { useLocalStorage } from "../../utils/hooks";
 
 const navigationCategories = [
     {
@@ -31,6 +33,9 @@ const navigationCategories = [
 const Header = ({
     full = false
 }) => {
+    const [cartProducts, setCartProducts] = useLocalStorage('cartProducts', []);
+    const [cartProductsPrice, setCartProductsPrice] = useState(0);
+    const [cartProductsCount, setCartProductsCount] = useState(0);
     let navigate = useNavigate();
 
     const handleCartClick = () => {
@@ -45,8 +50,16 @@ const Header = ({
         navigate('/')
     }
 
+    useEffect(() => {
+        const cartProductsPrice = cartProducts.reduce((acc, product) => product.price * product.count + acc, 0)
+        const cartProductsCount = cartProducts.reduce((acc, product) => product.count + acc, 0)
+
+        setCartProductsPrice(cartProductsPrice)
+        setCartProductsCount(cartProductsCount)
+    }, [cartProducts, setCartProducts]);
+
     return (
-        <header className={classes.headerContainer}>
+        <>
             <div className={classes.headerTop}>
                 <div onClick={handleLogoClick} className={classes.headerLogo}>
                     <LogoIconSmall />
@@ -69,7 +82,7 @@ const Header = ({
                     <div className={classes.headerCartIconContainer}>
                         <CartIcon />
                         <div className={classes.headerCartBadge}>
-                            3
+                            { cartProductsCount }
                         </div>
                     </div>
                     <div>
@@ -77,7 +90,7 @@ const Header = ({
                             Shopping cart:
                         </div>
                         <div className={classes.headerCartInfoMoney}>
-                            5000 &#1423;
+                            { cartProductsPrice } &#1423;
                         </div>
                     </div>
                 </div>
@@ -120,7 +133,7 @@ const Header = ({
                     </div>
                 )
             }
-        </header>
+        </>
     )
 }
 

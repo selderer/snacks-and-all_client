@@ -1,23 +1,75 @@
 import SecondaryLayout from "../components/layouts/SecondaryLayout";
 import classes from "../assets/css/pages/product.module.css";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {ProductsApi} from "../api/products";
 import {useParams} from "react-router-dom";
 import BestsellerIcon from "../assets/icons/BestsellerIcon";
-import {Loader} from "@mantine/core";
+import {Loader, NumberInput} from "@mantine/core";
+import cn from "classnames";
+import {useLocalStorage} from "../utils/hooks";
 
 const Product = () => {
     let { productId } = useParams();
 
     const [product, setProduct] = useState({});
     const [productLoading, setProductLoading] = useState(false);
+    const [isProductInCart, setIsProductInCart] = useState(false);
+    const [cartProductCount, setCartProductCount] = useState(0);
+    const [cartProducts, setCartProducts] = useLocalStorage('cartProducts', []);
+    const handlersRef = useRef(null);
+
+    const handleAddToCart = () => {
+        const cartProduct = {
+            ...product,
+            count: 1,
+        }
+
+        const initialCartProducts = JSON.parse(JSON.stringify(cartProducts))
+
+        initialCartProducts.push(cartProduct)
+
+        setCartProducts(initialCartProducts)
+        setIsProductInCart(true)
+        setCartProductCount(1)
+    }
+
+    const handleDecrement = (e) => {
+        e.stopPropagation();
+
+        handlersRef.current.decrement();
+    }
+
+    const handleIncrement = (e) => {
+        e.stopPropagation();
+
+        handlersRef.current.increment();
+    }
+
+    const handleChangeCartProductCount = (count) => {
+        const initialCartProducts = JSON.parse(localStorage.getItem('cartProducts'));
+        const changingProductIndex = initialCartProducts.findIndex(cartProduct => cartProduct.id === product.id);
+
+        initialCartProducts[changingProductIndex].count = count;
+
+        setCartProducts(initialCartProducts);
+        setCartProductCount(count);
+    }
 
     useEffect(() => {
         setProductLoading(true)
-        console.log(productId, 'id')
+
         ProductsApi.getProductById(productId).then(response => {
-            console.log(response, 'response')
-            setProduct(response.data)
+            const product = response.data
+
+            setProduct(product)
+
+            const cartProducts = JSON.parse(localStorage.getItem('cartProducts'))
+            const productInCart = cartProducts.find(cartProduct => cartProduct.id === product.id)
+
+            if (productInCart) {
+                setIsProductInCart(true)
+                setCartProductCount(productInCart.count)
+            }
         }).finally(() => {
             setProductLoading(false)
         })
@@ -54,9 +106,39 @@ const Product = () => {
                             <div className={classes.productInfoDesc}>
                                 { product.description }
                             </div>
-                            <button className={classes.productInfoAddToCartButton}>
-                                Add to cart
-                            </button>
+                            {
+                                !isProductInCart ? (
+                                    <button onClick={handleAddToCart} className={classes.productInfoAddToCartButton}>
+                                        Add to cart
+                                    </button>
+                                ) : (
+                                    <div className={classes.productCountWrapper}>
+                                        <div
+                                            className={cn(classes.productCounterButton, classes.productCounterButtonLeft)}
+                                            onClick={handleDecrement}
+                                        >
+                                            -
+                                        </div>
+                                        <NumberInput
+                                            value={cartProductCount}
+                                            onChange={handleChangeCartProductCount}
+                                            handlersRef={handlersRef}
+                                            hideControls
+                                            min={1}
+                                            max={50}
+                                            step={1}
+                                            className={classes.productCounter}
+                                            id={`product-counter-${product.id}`}
+                                        />
+                                        <div
+                                            className={cn(classes.productCounterButton, classes.productCounterButtonRight)}
+                                            onClick={handleIncrement}
+                                        >
+                                            +
+                                        </div>
+                                    </div>
+                                )
+                            }
                         </div>
                     </div>
                 )

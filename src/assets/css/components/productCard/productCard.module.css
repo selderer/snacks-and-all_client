@@ -112,3 +112,42 @@
 .productCardButtonBig {
     padding: 11px;
 }
+
+.productCardCounterWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.productCardCounter {
+    width: 40px;
+}
+
+.productCardCounter input {
+    min-height: 30px;
+    height: 30px;
+    border-radius: unset;
+    background: var(--color-gray-50);
+    border: 1px solid var(--color-gray-100);
+    text-align: center;
+}
+
+.productCardCounterButton {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-purple-500, #7B2CBF);
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.productCardCounterButtonLeft {
+    border-radius: 3px 0 0 3px;
+}
+
+.productCardCounterButtonRight {
+    border-radius: 0 3px 3px 0;
+}

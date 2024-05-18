@@ -4,13 +4,6 @@ import { useState } from "react";
 import classes from "../assets/css/pages/addProduct.module.css";
 import { ProductsApi } from "../api/products";
 
-// Name
-// Price
-// Description
-// Category
-// Type
-// Image
-
 const categoryOptions = ['drink', 'chocolate', 'cookie', 'chips', 'candy'];
 const typeOptions = ['bestseller', 'exotic'];
 

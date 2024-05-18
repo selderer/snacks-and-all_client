@@ -1,13 +1,13 @@
-.headerContainer {
-    background-color: var(--color-gray-0);
-    width: 100%;
-    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.25);
-}
-
 .headerTop {
     padding: 25px 150px 30px 150px;
     display: flex;
     justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 9;
+    background-color: var(--color-gray-0);
+    width: 100%;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.25);
 }
 
 .headerLogo {
@@ -52,7 +52,7 @@ ion-icon {
 
 .headerCart {
     display: flex;
-    gap: 10px;
+    gap: 15px;
     align-items: center;
     cursor: pointer;
 }
@@ -96,11 +96,13 @@ ion-icon {
 }
 
 .headerBottom {
-    height: 50px;
-    border-top: 1px solid var(--color-gray-200, #CCC);
+    height: 45px;
     padding: 0 150px;
     display: flex;
     justify-content: space-between;
+    background-color: var(--color-gray-0);
+    width: 100%;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.25);
 }
 
 .headerNavigationMainButton {
