@@ -1,0 +1,89 @@
+.checkoutContainer {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0 50px 0;
+}
+
+.checkoutForm {
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.checkoutFirstScreenButton {
+    background-color: var(--color-purple-700, #3C096C);
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 150%;
+    width: 170px;
+    height: 40px;
+    margin-top: 15px;
+}
+
+.checkoutFirstScreenButton:hover {
+    background-color: var(--color-purple-800);
+}
+
+.checkoutPayButton {
+    width: 100px;
+    height: 40px;
+    background-color: var(--color-purple-700);
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 150%;
+}
+
+.checkoutPayButton:hover {
+    background-color: var(--color-purple-800);
+}
+
+.checkoutPaymentMethodsWrapper {
+    display: flex;
+    gap: 8px;
+    margin: 10px 0;
+}
+
+.checkoutPaymentMethod {
+    width: 45px;
+    height: 30px;
+    background-color: var(--color-gray-900);
+    border: 1px solid var(--color-gray-800);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+}
+
+.checkoutSuccessfulScreen {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.checkoutSuccessfulScreenTitle {
+    color: var(--color-purple-600, #5A189A);
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 150%;
+}
+
+.checkoutSuccessfulScreenInfo {
+    color: #000;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.checkoutSuccessfulScreenInfoImportant {
+    color: var(--color-purple-600);
+}
+
+.checkoutSuccessfulImage {
+    margin: 30px 0;
+}

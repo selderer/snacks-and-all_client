@@ -1,10 +1,16 @@
 .productCard {
     border: 1px solid var(--color-gray-100);
     cursor: pointer;
+
+    transition: .2s border;
 }
 
 .productCard:hover {
     border: 1px solid var(--color-purple-600);
+}
+
+.productCard:hover .productCardImageContainerSmall {
+    border-bottom: 1px solid var(--color-purple-600);
 }
 
 .productCardSmall {
@@ -17,6 +23,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 5px;
+    border-bottom: 1px solid var(--color-gray-100);
+
+    transition: .2s border;
 }
 
 .productCardInfoWrapper {

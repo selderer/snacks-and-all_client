@@ -32,6 +32,10 @@ export class ProductsApi {
     }
 
     static getProductsByPriceRange({ from, to }) {
-        return api.get(`products?from=${from}&to=${to}`)
+        return api.get(`/products?from=${from}&to=${to}`)
+    }
+
+    static searchProducts(name) {
+        return api.get(`/products?search=${name}`)
     }
 }

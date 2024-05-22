@@ -74,3 +74,41 @@
 .cartCheckoutButton:hover {
     background-color: var(--color-purple-800);
 }
+
+.cartEmptyWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.cartEmptyTitle {
+    color: var(--color-purple-900, #10002B);
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 150%;
+    text-align: center;
+}
+
+.cartEmptyGif {
+    margin-top: 40px;
+}
+
+.cartEmptyButton {
+    margin-top: 40px;
+    width: 180px;
+    height: 50px;
+    border-radius: 3px;
+    background-color: var(--color-purple-700, #3C096C);
+    color: #FFF;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 500;
+
+    transition: .2s background-color;
+}
+
+.cartEmptyButton:hover {
+    background-color: var(--color-purple-800);
+}

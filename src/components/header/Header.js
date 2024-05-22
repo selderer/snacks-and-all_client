@@ -6,6 +6,7 @@ import CartIcon from "../../assets/icons/CartIcon";
 import PhoneIcon from "../../assets/icons/PhoneIcon";
 import { useEffect, useState } from "react";
 import { useLocalStorage } from "../../utils/hooks";
+import { ProductsApi } from "../../api/products";
 
 const navigationCategories = [
     {
@@ -36,6 +37,8 @@ const Header = ({
     const [cartProducts, setCartProducts] = useLocalStorage('cartProducts', []);
     const [cartProductsPrice, setCartProductsPrice] = useState(0);
     const [cartProductsCount, setCartProductsCount] = useState(0);
+    const [searchString, setSearchString] = useState('');
+    const [showSearchResults, setShowSearchResults] = useState(false);
     let navigate = useNavigate();
 
     const handleCartClick = () => {
@@ -48,6 +51,17 @@ const Header = ({
 
     const handleLogoClick = () => {
         navigate('/')
+    }
+
+    const handleSearch = (e) => {
+        const searchingString = e.currentTarget.value;
+
+        setSearchString(searchingString);
+
+        ProductsApi.searchProducts(searchingString).then((res) => {
+            setShowSearchResults(true)
+            console.log(res.data, 'response')
+        })
     }
 
     useEffect(() => {
@@ -72,11 +86,21 @@ const Header = ({
                         type="text"
                         placeholder="Search your product"
                         radius="xs"
+                        value={searchString}
+                        onChange={handleSearch}
+                        onBlur={() => setShowSearchResults(false)}
                         className={classes.headerSearchInput}
                     />
                     <button className={classes.headerSearchButton}>
                         <ion-icon name="search"></ion-icon>
                     </button>
+
+                    {
+                        showSearchResults && (
+                            <div>
+                            </div>
+                        )
+                    }
                 </div>
                 <div className={classes.headerCart} onClick={handleCartClick}>
                     <div className={classes.headerCartIconContainer}>
