@@ -28,7 +28,7 @@ export default function HomePage() {
     }
 
     const handleShowNowClick = () => {
-        navigate('/products')
+        navigate('/products?type=exotic')
     }
 
     useEffect(() => {

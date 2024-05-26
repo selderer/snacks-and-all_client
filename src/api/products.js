@@ -31,11 +31,43 @@ export class ProductsApi {
         return api.post('/upload', formData)
     }
 
-    static getProductsByPriceRange({ from, to }) {
-        return api.get(`/products?from=${from}&to=${to}`)
+    static searchProducts(name, limit) {
+        let query = `/products?search=${name}`
+
+        if (limit) {
+            query += `&limit=${limit}`
+        }
+
+        return api.get(query)
     }
 
-    static searchProducts(name) {
-        return api.get(`/products?search=${name}`)
+    static getFilteredProducts(filter) {
+        let query = '/products?'
+
+        if (filter.category) {
+            query += `category=${filter.category}`
+        }
+
+        if (filter.type) {
+            query += `&type=${filter.type}`
+        }
+
+        if (filter.search) {
+            query += `&search=${filter.search}`
+        }
+
+        if (filter.from && filter.to) {
+            query += `&from=${filter.from}&to=${filter.to}`
+        }
+
+        return api.get(query)
+    }
+
+    static updateProduct(id, product) {
+        return api.post(`/products/update/${id}`, product)
+    }
+
+    static deleteProduct(id) {
+        return api.post(`/products/delete/${id}`)
     }
 }

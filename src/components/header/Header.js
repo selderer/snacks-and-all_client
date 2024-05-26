@@ -1,7 +1,7 @@
 import LogoIconSmall from '../../assets/icons/LogoIconSmall.js';
 import { Button, Input } from "@mantine/core";
 import classes from '../../assets/css/components/header/header.module.css';
-import { NavLink, useNavigate } from 'react-router-dom'
+import {NavLink, useNavigate, useSearchParams} from 'react-router-dom'
 import CartIcon from "../../assets/icons/CartIcon";
 import PhoneIcon from "../../assets/icons/PhoneIcon";
 import { useEffect, useState } from "react";
@@ -34,11 +34,13 @@ const navigationCategories = [
 const Header = ({
     full = false
 }) => {
+    const [searchParams, setSearchParams] = useSearchParams();
     const [cartProducts, setCartProducts] = useLocalStorage('cartProducts', []);
     const [cartProductsPrice, setCartProductsPrice] = useState(0);
     const [cartProductsCount, setCartProductsCount] = useState(0);
-    const [searchString, setSearchString] = useState('');
+    const [searchString, setSearchString] = useState(searchParams.get('search') || '');
     const [showSearchResults, setShowSearchResults] = useState(false);
+    const [searchResults, setSearchResults] = useState([]);
     let navigate = useNavigate();
 
     const handleCartClick = () => {
@@ -53,15 +55,44 @@ const Header = ({
         navigate('/')
     }
 
+    const handleShowAllSearchResults = (e) => {
+        e.preventDefault()
+
+        setShowSearchResults(false)
+        navigate(`/products?search=${searchString}`)
+    }
+
     const handleSearch = (e) => {
         const searchingString = e.currentTarget.value;
 
         setSearchString(searchingString);
 
-        ProductsApi.searchProducts(searchingString).then((res) => {
+        if (!searchingString) {
+            setShowSearchResults(false)
+
+            return;
+        }
+
+        ProductsApi.searchProducts(searchingString, 3).then((res) => {
             setShowSearchResults(true)
-            console.log(res.data, 'response')
+            setSearchResults(res.data)
         })
+    }
+
+    const handleSearchBlur = (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+
+        if (e.relatedTarget) {
+            return
+        }
+
+        setShowSearchResults(false)
+    }
+
+    const handleSearchProductClick = (id) => {
+        setShowSearchResults(false)
+        navigate(`/products/${id}`)
     }
 
     useEffect(() => {
@@ -88,16 +119,51 @@ const Header = ({
                         radius="xs"
                         value={searchString}
                         onChange={handleSearch}
-                        onBlur={() => setShowSearchResults(false)}
+                        onBlur={handleSearchBlur}
                         className={classes.headerSearchInput}
                     />
-                    <button className={classes.headerSearchButton}>
+                    <button onClick={handleShowAllSearchResults} className={classes.headerSearchButton}>
                         <ion-icon name="search"></ion-icon>
                     </button>
 
                     {
                         showSearchResults && (
-                            <div>
+                            <div className={classes.searchResultContainer}>
+                                <div className={classes.searchResultProducts}>
+                                    {
+                                        searchResults.length > 0 ? searchResults.map(product => {
+                                          return (
+                                              <div
+                                                  onClick={() => handleSearchProductClick(product.id)}
+                                                  key={product.id}
+                                                  className={classes.searchProduct}
+                                              >
+                                                  <div className={classes.searchProductImage}>
+                                                      <img src={`/upload/${product.image}`} alt="Product" />
+                                                  </div>
+                                                  <div className={classes.searchProductInfo}>
+                                                      <span className={classes.searchProductTitle}>
+                                                          { product.name }
+                                                      </span>
+                                                      <span className={classes.searchProductPrice}>
+                                                          { product.price } &#1423;
+                                                      </span>
+                                                      <span className={classes.searchProductDesc}>
+                                                          { product.description }
+                                                      </span>
+                                                  </div>
+                                              </div>
+                                          )
+                                      }) : (
+                                        <div className={classes.searchProductNoResults}>
+                                            No products found
+                                        </div>
+                                      )
+                                    }
+                                </div>
+                                <button onClick={handleShowAllSearchResults} className={classes.searchResultsButton}>
+                                    Show all results
+                                </button>
                             </div>
                         )
                     }

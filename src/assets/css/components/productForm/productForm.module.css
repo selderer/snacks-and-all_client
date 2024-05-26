@@ -1,0 +1,16 @@
+.productFormFields {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.productFormButton {
+    border-radius: 3px;
+    background: var(--color-purple-700, #3C096C);
+    padding: 8px 18px;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 30px;
+}

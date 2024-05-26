@@ -19,7 +19,6 @@ const Checkout = () => {
 
     const handlePay = () => {
         OrdersApi.addOrder(orderData).then(() => {
-            console.log("Added order")
             setCurrentShowingScreen(3)
             setCartProducts([])
         })

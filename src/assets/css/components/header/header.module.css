@@ -153,3 +153,90 @@ ion-icon {
     font-weight: 500;
     line-height: 150%;
 }
+
+.searchResultContainer {
+    position: absolute;
+    width: 350px;
+    border-radius: 3px;
+    border: 1px solid var(--color-gray-200);
+    background: #FFFFFF;
+    z-index: 4;
+    top: 45px;
+}
+
+.searchResultProducts {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+}
+
+.searchProduct {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.searchProductImage {
+    width: 120px;
+    height: 120px;
+    padding: 5px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.14);
+}
+
+.searchProductImage img {
+    height: 100%;
+    width: 100%;
+}
+
+.searchProductInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.searchProductTitle {
+    color: var(--color-gray-800);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: -0.13px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 185px;
+}
+
+.searchProductPrice {
+    color: var(--color-gray-900);
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+.searchProductDesc {
+    overflow: hidden;
+    color: var(--color-gray-700, #4C4C4C);
+    font-size: 11px;
+    font-weight: 400;
+    margin-top: 5px;
+    display: -webkit-box;
+    max-width: 185px;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.searchResultsButton {
+    width: 100%;
+    height: 30px;
+    border-radius: 0 0 3px 3px;
+    background: var(--color-purple-400, #9D4EDD);
+    color: var(--color-gray-0, #FFF);
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.searchProductNoResults {
+    color: var(--color-gray-900);
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+}

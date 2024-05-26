@@ -1,9 +1,9 @@
-import { RouterProvider } from "react-router-dom";
-import { router } from "./routes";
+import { BrowserRouter } from "react-router-dom";
 import { createTheme, Input, MantineProvider } from "@mantine/core";
 import React from "react";
 import classes from "./assets/css/general.module.css";
 import ScrollToTop from "./components/general/ScrollToTop";
+import Root from "./routes/Root";
 
 const theme = createTheme({
     components: {
@@ -18,9 +18,10 @@ const theme = createTheme({
 const App = () => {
     return (
         <MantineProvider theme={theme}>
-            <RouterProvider router={router}>
+            <BrowserRouter>
+                <Root />
                 <ScrollToTop />
-            </RouterProvider>
+            </BrowserRouter>
         </MantineProvider>
     )
 }
