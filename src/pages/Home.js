@@ -82,7 +82,7 @@ export default function HomePage() {
 
             <section className={classes.homeSection}>
                 <div className={classes.homeSectionTitle}>
-                    Bestsellers
+                    Best sellers
                 </div>
                 <Swiper
                     slidesPerView={'auto'}

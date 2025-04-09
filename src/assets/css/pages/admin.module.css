@@ -66,9 +66,9 @@
 }
 
 .editProductsWrapper {
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
     gap: 40px;
 }
 
@@ -79,4 +79,9 @@
     color: #FFF;
     font-size: 16px;
     font-weight: 400;
+}
+
+.editProducts {
+    display: flex;
+    justify-content: center;
 }

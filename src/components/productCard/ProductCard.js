@@ -2,18 +2,15 @@ import classes from '../../assets/css/components/productCard/productCard.module.
 import cn from 'classnames';
 import CartIconSmall from "../../assets/icons/CartIconSmall";
 import { useNavigate } from "react-router-dom";
-import CartIconMedium from "../../assets/icons/CartIconMedium";
 import { useLocalStorage } from "../../utils/hooks";
-import {useEffect, useRef, useState} from "react";
-import {NumberInput} from "@mantine/core";
+import { useEffect, useRef, useState } from "react";
+import { NumberInput } from "@mantine/core";
 
-// Sizes can be 'small' and 'big'
 const ProductCard = ({
     id,
     name,
     price,
     image,
-    size = 'small',
     description = '',
 }) => {
     const [cartProducts, setCartProducts] = useLocalStorage('cartProducts', []);
@@ -86,89 +83,61 @@ const ProductCard = ({
     }, []);
 
     return (
-        <>
-            {
-                size === 'small' ? (
-                    <div onClick={handleCardClick} className={cn(classes.productCardSmall, classes.productCard)}>
-                        <div className={classes.productCardImageContainerSmall}>
-                            <img src={`/upload/${image}`} alt="Product" className={classes.productCardImage} />
-                        </div>
-                        <div className={cn(classes.productCardInfoWrapperSmall, classes.productCardInfoWrapper)}>
-                            <div className={cn(classes.productCardInfo)}>
-                                <div className={cn(classes.productCardTitle, classes.productCardTitleSmall)}>
-                                    { name }
-                                </div>
-                                <div className={cn(classes.productCardPrice, classes.productCardPriceSmall)}>
-                                    { price } &#1423;
-                                </div>
-                            </div>
-                            {
-                                isProductInCart ? (
-                                    <div className={classes.productCardCounterWrapper}>
-                                        <div
-                                            className={
-                                                cn(classes.productCardCounterButton, classes.productCardCounterButtonLeft)
-                                            }
-                                            onClick={handleDecrement}
-                                        >
-                                            -
-                                        </div>
-                                        <NumberInput
-                                            value={cartProductCount}
-                                            onChange={handleChangeCartProductCount}
-                                            handlersRef={handlersRef}
-                                            hideControls
-                                            min={1}
-                                            max={50}
-                                            step={1}
-                                            className={classes.productCardCounter}
-                                            id={`product-counter-${id}`}
-                                        />
-                                        <div
-                                            className={
-                                                cn(classes.productCardCounterButton, classes.productCardCounterButtonRight)
-                                            }
-                                            onClick={handleIncrement}
-                                        >
-                                            +
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <div
-                                        onClick={handleCartClick}
-                                        className={cn(classes.productCardButton, classes.productCardButtonSmall)}
-                                    >
-                                        <CartIconSmall />
-                                    </div>
-                                )
-                            }
-                        </div>
+        <div onClick={handleCardClick} className={cn(classes.productCardSmall, classes.productCard)}>
+            <div className={classes.productCardImageContainerSmall}>
+                <img src={`/upload/${image}`} alt="Product" className={classes.productCardImage} />
+            </div>
+            <div className={cn(classes.productCardInfoWrapperSmall, classes.productCardInfoWrapper)}>
+                <div className={cn(classes.productCardInfo)}>
+                    <div className={cn(classes.productCardTitle, classes.productCardTitleSmall)}>
+                        { name }
                     </div>
-                ) : (
-                    <div onClick={handleCardClick} className={cn(classes.productCardBig, classes.productCard)}>
-                        <div className={classes.productCardImageContainerBig}>
-                            <img src={`/upload/${image}`} alt="Product" className={classes.productCardImage} />
-                        </div>
-                        <div className={cn(classes.productCardInfoWrapperBig, classes.productCardInfoWrapper)}>
-                            <div className={cn(classes.productCardInfo)}>
-                                <div className={cn(classes.productCardTitle, classes.productCardTitleBig)}>
-                                    { name }
-                                </div>
-                                <div className={cn(classes.productCardPrice, classes.productCardPriceBig)}>
-                                    { price } &#1423;
-                                </div>
-                            </div>
+                    <div className={cn(classes.productCardPrice, classes.productCardPriceSmall)}>
+                        { price } &#1423;
+                    </div>
+                </div>
+                {
+                    isProductInCart ? (
+                        <div className={classes.productCardCounterWrapper}>
                             <div
-                                onClick={handleCartClick}
-                                className={cn(classes.productCardButton, classes.productCardButtonBig)}
+                                className={
+                                    cn(classes.productCardCounterButton, classes.productCardCounterButtonLeft)
+                                }
+                                onClick={handleDecrement}
                             >
-                                <CartIconMedium />
+                                -
+                            </div>
+                            <NumberInput
+                                value={cartProductCount}
+                                onChange={handleChangeCartProductCount}
+                                handlersRef={handlersRef}
+                                hideControls
+                                min={1}
+                                max={50}
+                                step={1}
+                                className={classes.productCardCounter}
+                                id={`product-counter-${id}`}
+                            />
+                            <div
+                                className={
+                                    cn(classes.productCardCounterButton, classes.productCardCounterButtonRight)
+                                }
+                                onClick={handleIncrement}
+                            >
+                                +
                             </div>
                         </div>
-                    </div>
-                )
-            }
-        </>
+                    ) : (
+                        <div
+                            onClick={handleCartClick}
+                            className={cn(classes.productCardButton, classes.productCardButtonSmall)}
+                        >
+                            <CartIconSmall />
+                        </div>
+                    )
+                }
+            </div>
+        </div>
     )
 }
 

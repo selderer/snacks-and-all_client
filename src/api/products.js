@@ -60,6 +60,10 @@ export class ProductsApi {
             query += `&from=${filter.from}&to=${filter.to}`
         }
 
+        if (filter.limit) {
+            query += `&limit=${filter.limit}`
+        }
+
         return api.get(query)
     }
 

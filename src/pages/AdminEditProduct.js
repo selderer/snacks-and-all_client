@@ -53,7 +53,7 @@ const AdminEditProduct = () => {
                         className={classes.editSearchInput}
                     />
 
-                    <div>
+                    <div className={classes.editProducts}>
                         <div className={classes.editProductsWrapper}>
                             {
                                 searchResults.length > 0 ? (

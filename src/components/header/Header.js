@@ -80,9 +80,10 @@ const Header = ({
     }
 
     const handleSearchBlur = (e) => {
-        e.preventDefault()
         e.stopPropagation()
+        e.preventDefault()
 
+        console.log(e, 'related target')
         if (e.relatedTarget) {
             return
         }
@@ -90,7 +91,10 @@ const Header = ({
         setShowSearchResults(false)
     }
 
-    const handleSearchProductClick = (id) => {
+    const handleSearchProductClick = (e, id) => {
+        console.log(e, 'handle product clicl')
+        e.preventDefault()
+
         setShowSearchResults(false)
         navigate(`/products/${id}`)
     }
@@ -134,7 +138,7 @@ const Header = ({
                                         searchResults.length > 0 ? searchResults.map(product => {
                                           return (
                                               <div
-                                                  onClick={() => handleSearchProductClick(product.id)}
+                                                  onClick={(e) => handleSearchProductClick(e, product.id)}
                                                   key={product.id}
                                                   className={classes.searchProduct}
                                               >

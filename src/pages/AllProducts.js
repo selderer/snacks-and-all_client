@@ -79,7 +79,7 @@ const AllProducts = () => {
         getFilteredProducts()
     }
 
-    const getFilteredProducts = () => {
+    const getFilteredProducts = (limit = null) => {
         setProductsLoading(true);
 
         const filters = {}
@@ -99,6 +99,10 @@ const AllProducts = () => {
         if (priceRangeTo && priceRangeFrom) {
             filters.from = priceRangeFrom
             filters.to = priceRangeTo
+        }
+
+        if (limit) {
+            filters.limit = limit
         }
 
         ProductsApi.getFilteredProducts(filters).then(response => {

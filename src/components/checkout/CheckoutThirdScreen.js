@@ -11,7 +11,7 @@ const CheckoutThirdScreen = () => {
                 <img src={successfulOrderImage} alt="Successful order" />
             </div>
             <div className={classes.checkoutSuccessfulScreenInfo}>
-                It'll arrive in <span className={classes.checkoutSuccessfulScreenInfoImportant}>3 work days,</span> we will additionally contact you when it arrives.
+                It'll arrive in <span className={classes.checkoutSuccessfulScreenInfoImportant}>1 work day,</span> we will additionally contact you when it arrives.
                 <br /> And you can always contact us if you have any questions!
             </div>
         </div>

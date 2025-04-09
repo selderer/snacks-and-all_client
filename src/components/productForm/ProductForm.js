@@ -82,12 +82,22 @@ const ProductForm = ({
                     value={price}
                     onChange={setPrice}
                 />
-                <FileInput
-                    accept="image/png,image/jpeg,image/webp"
-                    label="Product image"
-                    value={image}
-                    onChange={setImage}
-                />
+                <div className={classes.productFormImageWrapper}>
+                    {
+                        id && (
+                            <div className={classes.productFormImage}>
+                                <img src={`/upload/${image}`} alt="Product" />
+                            </div>
+                        )
+                    }
+                    <FileInput
+                        accept="image/png,image/jpeg,image/webp"
+                        label="Product image"
+                        className={classes.productFormImageField}
+                        value={image}
+                        onChange={setImage}
+                    />
+                </div>
             </div>
             <button onClick={handleProductFormSubmit} className={classes.productFormButton}>
                 { id ? 'Edit product' : 'Add product' }
